@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -38,7 +39,7 @@ const Navbar = () => {
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 gap-6">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
-            <img
+            <Image
               src="/svg/logo.svg"
               width={150}
               height={70}
@@ -97,7 +98,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:inline-block">
           <a
-            href="javascript:void(0)"
+            href="/"
             className="py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
             Get Started
           </a>
