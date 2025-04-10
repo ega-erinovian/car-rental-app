@@ -1,4 +1,4 @@
-import HomePageComponent from "@/features/Home";
+import HomePageComponent from "@/features/home";
 
 export default function Home() {
   return <HomePageComponent />;
