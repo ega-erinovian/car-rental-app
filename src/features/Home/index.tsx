@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
+import InfoSection from "./components/InfoSection";
 
 const HomePageComponent = () => {
   return (
@@ -9,7 +10,7 @@ const HomePageComponent = () => {
       <div className="container mx-auto w-full px-4 mt-28">
         <HeroSection />
         <FeaturesSection />
-        {/* How To Section */}
+        <InfoSection />
         {/* Available Car Section */}
         {/* Facts In Number Section */}
         {/* Search Car Section */}
