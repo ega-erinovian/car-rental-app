@@ -22,8 +22,8 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-4 lg:py-8 xl:py-12">
-      <div className="container mx-auto px-4 text-center text-gray-600 md:px-8">
+    <section className="py-8 xl:py-12">
+      <div className="container mx-auto px-4 md:px-0 text-center text-gray-600">
         <ul className="grid xl:gap-x-48 md:gap-x-10 gap-y-20 md:grid-cols-3">
           {features.map((item, idx) => (
             <li key={idx} className="space-y-2 group">
