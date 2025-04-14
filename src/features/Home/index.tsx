@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
 import InfoSection from "./components/InfoSection";
+import BrowseCarsSection from "./components/BrowseCarsSection";
+import FAQSection from "./components/FAQSection";
 
 const HomePageComponent = () => {
   return (
@@ -10,8 +12,9 @@ const HomePageComponent = () => {
       <div className="container mx-auto w-full px-4 mt-28">
         <HeroSection />
         <FeaturesSection />
-        <InfoSection />
-        {/* Available Car Section */}
+        <FAQSection />
+        {/* <InfoSection /> */}
+        <BrowseCarsSection />
         {/* Facts In Number Section */}
         {/* Search Car Section */}
       </div>
