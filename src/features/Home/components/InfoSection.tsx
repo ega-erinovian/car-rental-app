@@ -61,15 +61,15 @@ export default function IntegrationsSection() {
               </LineShadowText>
             </h2>
             <p className="text-muted-foreground text-balance">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-              deserunt voluptatibus!
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo id
+              sed tempora repellendus excepturi earum reiciendis suscipit
+              tempore magnam fuga!
             </p>
-
-            <Button
-              asChild
-              className="bg-blue-600 hover:bg-blue-700 hover:text-white">
-              <Link href="#">Browse Cars</Link>
-            </Button>
+            <Link href="#">
+              <Button className="bg-blue-600 hover:bg-blue-700 hover:text-white my-6">
+                Browse Cars
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

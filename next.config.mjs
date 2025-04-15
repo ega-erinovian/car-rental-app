@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.w3.org",
+        hostname: "www.toyota.astra.co.id",
       },
     ],
   },
