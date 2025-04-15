@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
-import InfoSection from "./components/InfoSection";
-import BrowseCarsSection from "./components/BrowseCarsSection";
 import FAQSection from "./components/FAQSection";
+import BrowseCarsSection from "./components/browse-cars-section/BrowseCarsSection";
 
 const HomePageComponent = () => {
   return (

@@ -26,7 +26,7 @@ const Navbar = () => {
   }, [scrolled]);
 
   const navigationLink = [
-    { title: "Vehicles", path: "/vehicles" },
+    { title: "Cars", path: "/vehicles" },
     { title: "About Us", path: "/about-us" },
     { title: "Contact", path: "/contact" },
   ];
