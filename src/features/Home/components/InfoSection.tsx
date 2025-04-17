@@ -1,21 +1,21 @@
 "use client";
 
-import type React from "react";
-import { cn } from "@/lib/utils";
+import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { ArrowRightIcon, SearchIcon } from "lucide-react";
+import type React from "react";
 import {
-  Toyota,
-  Suzuki,
+  Chevrolet,
+  Honda,
   Hyundai,
   Mazda,
   Mitsubishi,
-  Honda,
-  Chevrolet,
+  Suzuki,
+  Toyota,
 } from "./logos";
-import { LineShadowText } from "@/components/magicui/line-shadow-text";
 
-export default function IntegrationsSection() {
+export default function InfoSection() {
   return (
     <section className="container mx-auto">
       <div className="py-16">
@@ -65,11 +65,30 @@ export default function IntegrationsSection() {
               sed tempora repellendus excepturi earum reiciendis suscipit
               tempore magnam fuga!
             </p>
-            <Link href="#">
-              <Button className="bg-blue-600 hover:bg-blue-700 hover:text-white my-6">
-                Browse Cars
-              </Button>
-            </Link>
+            <form
+              action=""
+              className="mt-10 mx-auto md:mx-0 max-w-xs lg:max-w-sm xl:max-w-xl lg:mt-12">
+              <div className="bg-background has-[input:focus]:ring-muted relative grid grid-cols-[1fr_auto] items-center rounded-xl border pr-3 shadow shadow-zinc-950/5 has-[input:focus]:ring-2">
+                <SearchIcon className="text-caption pointer-events-none absolute inset-y-0 left-5 my-auto size-5" />
+                <input
+                  placeholder="Search Car"
+                  className="h-14 w-full bg-transparent pl-12 focus:outline-none"
+                  type="email"
+                />
+
+                <div className="md:pr-1.5 lg:pr-0">
+                  <Button
+                    aria-label="submit"
+                    className="rounded-lg bg-blue-600 hover:bg-blue-700 text-white">
+                    <span className="hidden md:block">Search</span>
+                    <ArrowRightIcon
+                      className="relative mx-auto size-5 md:hidden"
+                      strokeWidth={2}
+                    />
+                  </Button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
