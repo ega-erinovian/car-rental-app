@@ -17,7 +17,7 @@ export default function BrowseCarsSection() {
           ))}
         </div>
         <div className="w-full py-6 flex items-center justify-center md:justify-start gap-2 text-sm md:text-lg font-semibold">
-          Can't found the car you want?
+          Can`t found the car you want?
           <Link
             href="#"
             className="flex items-center w-fit gap-2 text-blue-600 hover:text-blue-800 hover:translate-x-1 transition-all duration-300">

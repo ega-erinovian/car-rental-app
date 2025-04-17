@@ -35,18 +35,16 @@ const CarCard = () => {
             <h1 className="font-bold text-xl text-blue-600">Rp200.000</h1>
           </div>
         </div>
-        <div className="flex justify-between mt-8">
-          <div className="flex gap-1 items-center">
+        <div className="flex mt-8 divide-x justify-center text-xs md:text-base lg:text-xs">
+          <div className="flex gap-1 items-center px-6 lg:px-4  ps-0">
             <GearIcon />
             <p>Manual</p>
           </div>
-          <span className="text-gray-300">|</span>
-          <div className="flex gap-1 items-center">
+          <div className="flex gap-1 items-center px-6 lg:px-4 ">
             <PersonIcon />
             <p>8 person</p>
           </div>
-          <span className="text-gray-300">|</span>
-          <div className="flex gap-1 items-center">
+          <div className="flex gap-1 items-center px-6 lg:px-4  pe-0">
             <CalendarIcon />
             <p>2019</p>
           </div>
