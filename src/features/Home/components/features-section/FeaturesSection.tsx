@@ -1,23 +1,24 @@
 import { CarIcon, MapPin, Wallet2Icon } from "lucide-react";
+import FeaturesItem from "./components/FeaturesItem";
 
 const FeaturesSection = () => {
   const features = [
     {
       icon: <CarIcon className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />,
       title: "Comfort",
-      desc: "Gravida auctor fermentum morbi vulputate ac egestas orcietium convallis",
+      desc: "Travel in style and ease with our range of comfortable and modern vehicles, ensuring a relaxing journey for every mile",
     },
     {
       icon: <MapPin className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />,
       title: "Availability",
-      desc: "Diam tincidunt tincidunt erat at semper fermentum. Id ultricies quis",
+      desc: "Conveniently find the right car at your desired location and time, making your rental experience seamless and stress-free",
     },
     {
       icon: (
         <Wallet2Icon className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />
       ),
       title: "Savings",
-      desc: "Pretium convallis id diam sed commodo vestibulum lobortis volutpat",
+      desc: "Get the best value for your money with our competitive prices and special offers, helping you save on your car rental needs",
     },
   ];
 
@@ -26,13 +27,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 md:px-0 text-center text-gray-600">
         <ul className="grid xl:gap-x-48 md:gap-x-10 gap-y-20 md:grid-cols-3">
           {features.map((item, idx) => (
-            <li key={idx} className="space-y-2 group">
-              <div className="w-full p-4 mx-auto flex items-center justify-center">
-                {item.icon}
-              </div>
-              <h4 className="text-2xl text-gray-800 font-bold">{item.title}</h4>
-              <p className="md:text-sm xl:text-base">{item.desc}</p>
-            </li>
+            <FeaturesItem key={idx} {...item} />
           ))}
         </ul>
       </div>

@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import CarCard from "./components/CarCard";
 import { ArrowRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function BrowseCarsSection() {
   return (
@@ -18,12 +21,24 @@ export default function BrowseCarsSection() {
         </div>
         <div className="w-full py-6 flex items-center justify-center md:justify-start gap-2 text-sm md:text-lg font-semibold">
           Can`t found the car you want?
-          <Link
-            href="#"
-            className="flex items-center w-fit gap-2 text-blue-600 hover:text-blue-800 hover:translate-x-1 transition-all duration-300">
-            Browse more
-            <ArrowRightIcon className="w-4" />
-          </Link>
+          <motion.div
+            className=" group"
+            whileHover="hover"
+            initial="rest"
+            animate="rest">
+            <Link
+              href="#"
+              className="flex items-center w-fit gap-2 text-blue-600 hover:text-blue-800">
+              Browse more
+              <motion.span
+                variants={{
+                  hover: { translateX: 6 },
+                }}
+                transition={{ type: "spring", stiffness: 500 }}>
+                <ArrowRightIcon className="w-4" />
+              </motion.span>
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>

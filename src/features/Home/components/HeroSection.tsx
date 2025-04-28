@@ -4,6 +4,7 @@ import { HeaderInteractiveHoverButton } from "@/components/magicui/header-intera
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import Image from "next/image";
 import { FC } from "react";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -16,22 +17,28 @@ const HeroSection = () => {
             Like Never Before
           </h1>
           <p className="text-xs lg:text-base text-white">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet,
-            quibusdam! Veritatis eos ab reprehenderit odio, autem non fuga
-            excepturi possimus.
+            Discover a curated selection of premium vehicles designed to elevate
+            your driving experience and transform every journey into an
+            unforgettable adventure. Rent your ideal car today and experience
+            the road like never before.
           </p>
-          <HeaderInteractiveHoverButton className="w-fit bg-orange-400 rounded-lg border-none text-white">
+          <HeaderInteractiveHoverButton className="w-fit bg-black rounded-lg border-none text-white">
             Browse Cars
           </HeaderInteractiveHoverButton>
         </div>
-        <div className="relative w-full h-60 ms-12 md:ms-12 md:h-full md:col-span-5">
+
+        <motion.div
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative w-full h-60 ms-12 md:ms-12 md:h-full md:col-span-5">
           <Image
             src={"/images/car-header.webp"}
             alt="header-car"
             className="object-contain"
             fill
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "./components/HeroSection";
-import FeaturesSection from "./components/FeaturesSection";
 import FAQSection from "./components/FAQSection";
 import BrowseCarsSection from "./components/browse-cars-section/BrowseCarsSection";
 import FactsInNumberSection from "./components/FactsInNumberSection";
 import InfoSection from "./components/InfoSection";
+import Footer from "@/components/footer/Footer";
+import FeaturesSection from "./components/features-section/FeaturesSection";
 
 const HomePageComponent = () => {
   return (
@@ -17,9 +18,8 @@ const HomePageComponent = () => {
         <BrowseCarsSection />
         <FactsInNumberSection />
         <InfoSection />
-        {/* Search Car Section */}
       </div>
-      {/* Footer Section */}
+      <Footer />
     </>
   );
 };

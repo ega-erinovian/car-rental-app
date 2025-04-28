@@ -18,7 +18,7 @@ import {
 export default function InfoSection() {
   return (
     <section className="container mx-auto">
-      <div className="py-16">
+      <div className="py-16 pb-24">
         <div className="grid items-center justify-between sm:grid-cols-2 md:gap-16">
           <div className="dark:bg-muted/50 relative mx-auto w-fit">
             <div className="bg-radial to-blue-600 absolute inset-0 z-10 from-blue-600 to-75%"></div>

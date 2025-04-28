@@ -3,10 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [state, setState] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,17 +18,15 @@ const Navbar = () => {
       }
     };
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrolled]);
 
   const navigationLink = [
-    { title: "Cars", path: "/vehicles" },
+    { title: "Cars", path: "/cars" },
     { title: "About Us", path: "/about-us" },
     { title: "Contact", path: "/contact" },
   ];
@@ -86,10 +86,15 @@ const Navbar = () => {
           }`}>
           <ul className="justify-end items-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             {navigationLink.map((item, idx) => {
+              const isActive = pathname === item.path;
               return (
                 <li
                   key={idx}
-                  className="text-gray-600 hover:text-blue-600 text-center font-semibold">
+                  className={`text-center ${
+                    isActive
+                      ? "text-blue-600 hover:text-blue-700 font-bold"
+                      : "text-gray-600 hover:text-blue-600 font-semibold"
+                  }`}>
                   <Link href={item.path}>{item.title}</Link>
                 </li>
               );
@@ -97,11 +102,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="hidden md:inline-block">
-          <a
-            href="/"
+          <Link
+            href="https://wa.me/+6285155114016"
+            target="_blank"
             className="py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
-            Get Started
-          </a>
+            Book Now
+          </Link>
         </div>
       </div>
     </nav>
