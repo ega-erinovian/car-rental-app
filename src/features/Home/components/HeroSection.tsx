@@ -4,7 +4,7 @@ import { HeaderInteractiveHoverButton } from "@/components/magicui/header-intera
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import Image from "next/image";
 import { FC } from "react";
-import { motion } from "framer-motion"; // ✅ Import framer-motion
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (

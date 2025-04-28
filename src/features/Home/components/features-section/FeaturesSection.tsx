@@ -6,19 +6,19 @@ const FeaturesSection = () => {
     {
       icon: <CarIcon className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />,
       title: "Comfort",
-      desc: "Gravida auctor fermentum morbi vulputate ac egestas orcietium convallis",
+      desc: "Travel in style and ease with our range of comfortable and modern vehicles, ensuring a relaxing journey for every mile",
     },
     {
       icon: <MapPin className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />,
       title: "Availability",
-      desc: "Diam tincidunt tincidunt erat at semper fermentum. Id ultricies quis",
+      desc: "Conveniently find the right car at your desired location and time, making your rental experience seamless and stress-free",
     },
     {
       icon: (
         <Wallet2Icon className="h-16 w-16 md:h-12 md:w-12 stroke-gray-800" />
       ),
       title: "Savings",
-      desc: "Pretium convallis id diam sed commodo vestibulum lobortis volutpat",
+      desc: "Get the best value for your money with our competitive prices and special offers, helping you save on your car rental needs",
     },
   ];
 
