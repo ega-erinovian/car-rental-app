@@ -11,27 +11,27 @@ import Image from "next/image";
 const FAQItems = [
   {
     id: "1",
-    title: "What makes Origin UI different?",
+    title: "What types of cars do you offer?",
     content:
-      "Origin UI focuses on developer experience and performance. Built with TypeScript, it offers excellent type safety, follows accessibility standards, and provides comprehensive documentation with regular updates.",
+      "We offer a diverse fleet of vehicles to suit various needs, including compact cars for city trips, sedans for comfortable family travel, SUVs for more space and adventure, and vans for larger groups. You can browse our available categories and specific models during the booking process.",
   },
   {
     id: "2",
-    title: "How can I customize the components?",
+    title: "What is included in the rental price?",
     content:
-      "Use our CSS variables for global styling, or className and style props for component-specific changes. We support CSS modules, Tailwind, and dark mode out of the box.",
+      "Typically, our base rental price includes the use of the vehicle for the agreed-upon period and mileage (unless otherwise specified). Taxes and mandatory fees are usually added during the booking process, providing a transparent view of the total cost. Optional extras like insurance, child seats, and GPS navigation will be additional.",
   },
   {
     id: "3",
-    title: "Is Origin UI optimized for performance?",
+    title: "What are your pick-up and drop-off procedures? ",
     content:
-      "Yes, with tree-shaking, code splitting, and minimal runtime overhead. Most components are under 5KB gzipped.",
+      "Our pick-up and drop-off locations and procedures are designed for convenience. You can typically collect your vehicle from our designated rental counters or specific pick-up points at your chosen location. Upon return, you'll usually drop off the car at the same location, following the instructions provided at the time of pick-up. Specific details regarding opening hours and any after-hours return options will be communicated with your booking confirmation.",
   },
   {
     id: "4",
-    title: "How accessible are the components?",
+    title: "What happens if I need assistance during my rental?",
     content:
-      "All components follow WAI-ARIA standards, featuring proper ARIA attributes, keyboard navigation, and screen reader support. Regular testing ensures compatibility with NVDA, VoiceOver, and JAWS.",
+      "We are here to support you throughout your rental period. In case of emergencies, breakdowns, or any other issues, you can contact our dedicated customer support team via the phone number provided in your rental agreement. We will provide guidance and assistance to resolve your situation as quickly as possible.",
   },
 ];
 
