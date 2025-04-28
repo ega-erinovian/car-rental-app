@@ -1,4 +1,5 @@
 import { CarIcon, MapPin, Wallet2Icon } from "lucide-react";
+import FeaturesItem from "./components/FeaturesItem";
 
 const FeaturesSection = () => {
   const features = [
@@ -26,13 +27,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 md:px-0 text-center text-gray-600">
         <ul className="grid xl:gap-x-48 md:gap-x-10 gap-y-20 md:grid-cols-3">
           {features.map((item, idx) => (
-            <li key={idx} className="space-y-2 group">
-              <div className="w-full p-4 mx-auto flex items-center justify-center">
-                {item.icon}
-              </div>
-              <h4 className="text-2xl text-gray-800 font-bold">{item.title}</h4>
-              <p className="md:text-sm xl:text-base">{item.desc}</p>
-            </li>
+            <FeaturesItem key={idx} {...item} />
           ))}
         </ul>
       </div>
