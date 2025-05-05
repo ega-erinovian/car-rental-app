@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <div className="container mx-auto h-full lg:h-[35vh] xl:h-[70vh]">
-      <div className="w-full h-full bg-gradient-to-r from-blue-600 to-blue-800 my-6 rounded-3xl md:grid md:grid-cols-9 overflow-hidden">
+    <div className="container mx-auto h-full lg:h-[35vh] xl:h-[70vh] my-6 mb-12">
+      <div className="w-full h-full bg-gradient-to-r from-blue-500 to-blue-900  rounded-3xl md:grid md:grid-cols-9 overflow-hidden">
         <div className="p-8 pb-4 md:p-16 md:pe-0 md:col-span-4 flex flex-col justify-center gap-4 xl:gap-8">
           <h1 className="font-black text-3xl text-balance sm:text-4xl xl:text-7xl text-white">
             Experience

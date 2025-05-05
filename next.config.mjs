@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.toyota.astra.co.id",
       },
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+      },
     ],
   },
 };
