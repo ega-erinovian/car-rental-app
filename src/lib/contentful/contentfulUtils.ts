@@ -5,6 +5,7 @@ interface EntryFields {
   category?: string;
   price?: number;
   transmition?: string;
+  location?: string;
   seatCapacity?: number;
   manufactureYear?: number;
   image?: {
@@ -32,6 +33,7 @@ export const mapEntry = (entry: ResponseEntry, type: string) => {
         category: entry.fields.category,
         price: entry.fields.price,
         transmition: entry.fields.transmition,
+        location: entry.fields.location,
         seatCapacity: entry.fields.seatCapacity,
         manufactureYear: entry.fields.manufactureYear,
         image: "https:" + entry.fields.image?.fields.file.url,

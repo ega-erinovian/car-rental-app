@@ -1,10 +1,5 @@
-import Navbar from "@/components/Navbar";
+import BrowseCarsPage from "@/features/browse-cars-page";
 
 export default function Cars() {
-  return (
-    <>
-      <Navbar />
-      <h1>This is Car Page</h1>
-    </>
-  );
+  return <BrowseCarsPage />;
 }

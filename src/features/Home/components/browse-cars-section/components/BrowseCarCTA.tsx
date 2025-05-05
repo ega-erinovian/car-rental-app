@@ -14,7 +14,7 @@ const BrowseCarCTA = () => {
         initial="rest"
         animate="rest">
         <Link
-          href="#"
+          href="/cars"
           className="flex items-center w-fit gap-2 text-blue-600 hover:text-blue-800">
           Browse more
           <motion.span
