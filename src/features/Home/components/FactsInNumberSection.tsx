@@ -1,26 +1,8 @@
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { Card } from "@/components/ui/card";
+import { stats } from "../consts";
 
 const FactsInNumberSection = () => {
-  const stats: { data: number; title: string }[] = [
-    {
-      data: 150,
-      title: "Customers",
-    },
-    {
-      data: 37,
-      title: "Cars",
-    },
-    {
-      data: 25,
-      title: "Drivers",
-    },
-    {
-      data: 5,
-      title: "Years",
-    },
-  ];
-
   return (
     <Card className="my-16 mt-8 bg-blue-600">
       <section className="py-14">

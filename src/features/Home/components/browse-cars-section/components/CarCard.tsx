@@ -35,10 +35,10 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
   }, [car, convertToRupiah]);
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="flex flex-col h-full">
+      <CardHeader className="flex-grow">
         <div className="w-full flex justify-center items-center">
-          <div className="relative w-full h-[180px] rounded-xl flex items-center justify-center">
+          <div className="relative w-full h-[180px] rounded-xl flex items-center justify-center overflow-hidden">
             <Image
               src={car.image || ""}
               alt="car-1"
@@ -50,9 +50,9 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="w-full flex justify-between gap-2">
+        <div className="w-full grid gap-2">
           <div>
-            <h1 className="font-bold text-xl">
+            <h1 className="font-bold text-xl line-clamp-2">
               {car.company + " " + car.type}
             </h1>
             <p className="text-sm">{car.category}</p>
@@ -64,21 +64,21 @@ const CarCard: FC<CarCardProps> = ({ car }) => {
           </div>
         </div>
         <div className="flex mt-8 divide-x justify-center text-xs md:text-base lg:text-xs">
-          <div className="flex gap-1 items-center px-6 lg:px-4  ps-0">
+          <div className="flex gap-1 items-center px-6 lg:px-4 ps-0">
             <GearIcon />
             <p>{car.transmition}</p>
           </div>
-          <div className="flex gap-1 items-center px-6 lg:px-4 ">
+          <div className="flex gap-1 items-center px-6 lg:px-4">
             <PersonIcon />
             <p>{car.seatCapacity} person</p>
           </div>
-          <div className="flex gap-1 items-center px-6 lg:px-4  pe-0">
+          <div className="flex gap-1 items-center px-6 lg:px-4 pe-0">
             <CalendarIcon />
             <p>{car.manufactureYear}</p>
           </div>
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex-none">
         <Button className="w-full bg-blue-600 hover:bg-blue-700">
           Rent This Car
         </Button>
