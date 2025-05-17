@@ -1,12 +1,18 @@
-import { getRentedCars } from "@/lib/contentful/api/getRentedCars";
+"use client";
+
+import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
 import BrowseCarCTA from "./components/BrowseCarCTA";
 import CarCard from "./components/CarCard";
 
-export default async function BrowseCarsSection() {
-  const rentedCars = await getRentedCars();
+export default function BrowseCarsSection() {
+  const { rentedCars, loading, error } = useGetRentedCars();
 
-  if (!rentedCars) {
-    return <h1>Not Found</h1>;
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>Failed to load rented cars</h1>;
   }
 
   return (

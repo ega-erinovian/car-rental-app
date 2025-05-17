@@ -38,6 +38,10 @@ export const mapEntry = (entry: ResponseEntry, type: string) => {
         manufactureYear: entry.fields.manufactureYear,
         image: "https:" + entry.fields.image?.fields.file.url,
       };
+    } else if (type === "company") {
+      return {
+        company: entry.fields.company,
+      };
     }
   }
 
