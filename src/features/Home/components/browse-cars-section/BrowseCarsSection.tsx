@@ -1,18 +1,25 @@
-import { getRentedCars } from "@/lib/contentful/api/getRentedCars";
+"use client";
+
+import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
 import BrowseCarCTA from "./components/BrowseCarCTA";
 import CarCard from "./components/CarCard";
 
-export default async function BrowseCarsSection() {
-  const rentedCars = await getRentedCars();
+export default function BrowseCarsSection() {
+  const { rentedCars, loading, error } = useGetRentedCars({ take: 8 });
 
-  if (!rentedCars) {
-    return <h1>Not Found</h1>;
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>Failed to load rented cars</h1>;
   }
 
   return (
     <section className="container mx-auto">
       <div className="py-16 pt-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="mb-8">
+          <p className="font-bold text-blue-600 text-xl">Newest</p>
           <h1 className="text-5xl xl:text-7xl max-w-64 md:max-w-full font-bold">
             Available Cars
           </h1>

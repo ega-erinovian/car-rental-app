@@ -5,6 +5,7 @@ import { LineShadowText } from "@/components/magicui/line-shadow-text";
 import Image from "next/image";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -22,9 +23,11 @@ const HeroSection = () => {
             unforgettable adventure. Rent your ideal car today and experience
             the road like never before.
           </p>
-          <HeaderInteractiveHoverButton className="w-fit bg-black rounded-lg border-none text-white">
-            Browse Cars
-          </HeaderInteractiveHoverButton>
+          <Link href="/cars">
+            <HeaderInteractiveHoverButton className="w-fit bg-black rounded-lg border-none text-white">
+              Browse Cars
+            </HeaderInteractiveHoverButton>
+          </Link>
         </div>
 
         <motion.div

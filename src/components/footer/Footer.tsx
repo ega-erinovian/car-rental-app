@@ -25,9 +25,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-8 md:gap-10 lg:gap-12 xl:gap-32">
           <div className="grid gap-8 xl:col-span-2">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ex
-              exercitationem porro explicabo. Dolor tenetur accusamus dolorem
-              aliquid placeat beatae?
+              Discover a curated selection of premium vehicles designed to
+              elevate your driving experience and transform every journey into
+              an unforgettable adventure. Rent your ideal car today and
+              experience the road like never before.
             </p>
             <div className="flex gap-4">
               {socialMediaLinks.map((item, index) => (

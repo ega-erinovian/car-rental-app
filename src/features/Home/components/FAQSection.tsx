@@ -1,6 +1,5 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { PlusIcon } from "lucide-react";
-
 import {
   Accordion,
   AccordionContent,
@@ -21,7 +20,12 @@ const FAQSection = () => {
         />
       </div>
       <div className="space-y-4 flex flex-col justify-center">
-        <h2 className="text-4xl xl:text-7xl font-bold">Before You Asked...</h2>
+        <div>
+          <p className="font-bold text-blue-600 text-xl">Read Me First</p>
+          <h2 className="text-4xl xl:text-7xl font-bold">
+            Before You Asked...
+          </h2>
+        </div>
         <Accordion type="single" collapsible className="w-full">
           {FAQItems.map((item) => (
             <AccordionItem

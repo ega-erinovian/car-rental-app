@@ -27,7 +27,7 @@ const FeaturesItem: FC<FeaturesItemProps> = ({ icon, title, desc }) => {
           {icon}
         </motion.div>
       </div>
-      <h4 className="text-2xl text-gray-800 font-bold group-hover:text-blue-600">
+      <h4 className="md:text-xl text-2xl text-gray-800 font-bold group-hover:text-blue-600">
         {title}
       </h4>
       <p className="md:text-sm xl:text-base pt-4">{desc}</p>

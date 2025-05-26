@@ -33,8 +33,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-50 fixed top-0 bg-white w-full border-b md:border-0 py-2 transition-shadow duration-300 ${
-        scrolled ? "shadow-xl" : ""
+      className={`z-40 fixed top-0 bg-white w-full border-b md:border-0 py-2 transition-shadow duration-300 ${
+        scrolled ? "shadow-lg" : ""
       }`}>
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 gap-6">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
