@@ -5,7 +5,7 @@ import BrowseCarCTA from "./components/BrowseCarCTA";
 import CarCard from "./components/CarCard";
 
 export default function BrowseCarsSection() {
-  const { rentedCars, loading, error } = useGetRentedCars();
+  const { rentedCars, loading, error } = useGetRentedCars({ take: 8 });
 
   if (loading) {
     return <h1>Loading...</h1>;

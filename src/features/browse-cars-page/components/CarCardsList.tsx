@@ -1,5 +1,5 @@
 import CarCard from "@/features/home/components/browse-cars-section/components/CarCard";
-import Car from "@/type/Car";
+import Car from "@/types/Car";
 import { FC } from "react";
 
 interface CarCardListInterface {
