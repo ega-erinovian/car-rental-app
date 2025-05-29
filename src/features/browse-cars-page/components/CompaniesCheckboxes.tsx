@@ -13,19 +13,21 @@ const CompaniesCheckboxes: FC<CompaniesCheckboxesInterface> = ({
   return (
     <div>
       <p className="font-semibold mb-4">Company</p>
-      {company.map((item, index) => (
-        <div className="flex gap-2 mb-2" key={index}>
-          <input
-            type="checkbox"
-            id="company"
-            name="company"
-            value={item}
-            onChange={handleCheckboxChange}
-            checked={selectedCompany.includes(item)}
-          />
-          <label>{item}</label>
-        </div>
-      ))}
+      <div className="flex gap-4 xl:block">
+        {company.map((item, index) => (
+          <div className="flex gap-2 mb-2" key={index}>
+            <input
+              type="checkbox"
+              id="company"
+              name="company"
+              value={item}
+              onChange={handleCheckboxChange}
+              checked={selectedCompany.includes(item)}
+            />
+            <label>{item}</label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

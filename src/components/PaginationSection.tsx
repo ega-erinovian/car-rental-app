@@ -7,7 +7,6 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-  PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { PaginationMeta } from "@/types/pagination";
 import { FC } from "react";
@@ -16,8 +15,8 @@ interface PaginationSectionProps extends PaginationMeta {
   onChangePage: (page: number) => void;
 }
 
-// Define a type for page numbers that can be a number or 'ellipsis'
-type PageDisplay = number | "ellipsis";
+// Define a type for page numbers
+type PageDisplay = number;
 
 const PaginationSection: FC<PaginationSectionProps> = ({
   page,
@@ -39,46 +38,23 @@ const PaginationSection: FC<PaginationSectionProps> = ({
     }
   };
 
-  // Generate array of page numbers to display
+  // Generate array of page numbers to display (always showing 3 pages)
   const getPageNumbers = (): PageDisplay[] => {
     const pageNumbers: PageDisplay[] = [];
-    const maxPagesToShow = 5; // Maximum number of page buttons to show
+    const maxPagesToShow = 3; // Maximum number of page buttons to show at once
 
+    // If there are fewer than 3 pages, just show all of them
     if (totalPages <= maxPagesToShow) {
-      // If total pages are less than max to show, display all pages
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i);
       }
     } else {
-      // Always include page 1
-      pageNumbers.push(1);
+      // Otherwise, create a sliding window of 3 pages
+      const startPage = Math.max(1, page - 1); // Always start 1 page before the current page, but not below 1
+      const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1); // Ensure we don't exceed total pages
 
-      if (page <= 4) {
-        // We're near the beginning
-        for (let i = 2; i <= 6 && i < totalPages; i++) {
-          pageNumbers.push(i);
-        }
-        if (totalPages > 7) {
-          pageNumbers.push("ellipsis");
-        }
-        if (totalPages > 1) {
-          pageNumbers.push(totalPages);
-        }
-      } else if (page >= totalPages - 3) {
-        // We're near the end
-        pageNumbers.push("ellipsis");
-        const startPage = Math.max(2, totalPages - 5);
-        for (let i = startPage; i < totalPages; i++) {
-          pageNumbers.push(i);
-        }
-      } else {
-        // We're in the middle
-        pageNumbers.push("ellipsis");
-        for (let i = page - 2; i <= page + 2; i++) {
-          pageNumbers.push(i);
-        }
-        pageNumbers.push("ellipsis");
-        pageNumbers.push(totalPages);
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i);
       }
     }
 
@@ -109,20 +85,16 @@ const PaginationSection: FC<PaginationSectionProps> = ({
 
         {pageNumbers.map((pageNum, index) => (
           <PaginationItem key={index}>
-            {pageNum === "ellipsis" ? (
-              <PaginationEllipsis />
-            ) : (
-              <PaginationLink
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onChangePage(pageNum);
-                }}
-                isActive={page === pageNum}
-                className={page === pageNum ? "font-bold text-purple-500" : ""}>
-                {pageNum}
-              </PaginationLink>
-            )}
+            <PaginationLink
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onChangePage(pageNum);
+              }}
+              isActive={page === pageNum}
+              className={page === pageNum ? "font-bold text-purple-500" : ""}>
+              {pageNum}
+            </PaginationLink>
           </PaginationItem>
         ))}
 

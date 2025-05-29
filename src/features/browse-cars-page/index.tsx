@@ -2,7 +2,9 @@
 
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/Navbar";
+import NoCarsFound from "@/components/NoCarsFound";
 import PaginationSection from "@/components/PaginationSection";
+import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
 import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
 import {
   parseAsArrayOf,
@@ -14,8 +16,6 @@ import { useDebounce } from "use-debounce";
 import CarCardsList from "./components/CarCardsList";
 import CompaniesCheckboxes from "./components/CompaniesCheckboxes";
 import SortBySelectInput from "./components/SortBySelectInput";
-import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
-import NoCarsFound from "@/components/NoCarsFound";
 
 const BrowseCarsPage = () => {
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
@@ -24,7 +24,6 @@ const BrowseCarsPage = () => {
     "companies",
     parseAsArrayOf(parseAsString).withDefault([])
   );
-  const [debouncedCompany] = useDebounce(selectedCompany, 500);
   const [debouncedSortBy] = useDebounce(sortBy, 500);
 
   const {
@@ -34,8 +33,8 @@ const BrowseCarsPage = () => {
     meta,
   } = useGetRentedCars({
     page,
-    take: 15,
-    companies: debouncedCompany,
+    take: 12,
+    companies: selectedCompany,
     sortBy: debouncedSortBy,
   });
 
@@ -66,9 +65,9 @@ const BrowseCarsPage = () => {
         {(cars.length === 0 && !loading) || error ? (
           <NoCarsFound />
         ) : (
-          <div className="grid grid-cols-5 gap-6">
-            <div className="col-span-1 z-50">
-              <div className="sticky top-28 border border-gray-200 rounded-xl p-8 grid gap-6">
+          <div className="container grid xl:grid-cols-5 gap-6">
+            <div className="xl:col-span-1 w-full">
+              <div className="xl:sticky top-28 border border-gray-200 rounded-xl p-8 grid gap-4">
                 <CompaniesCheckboxes
                   checkoxChange={handleCheckboxChange}
                   selectedCompany={selectedCompany}
@@ -79,7 +78,7 @@ const BrowseCarsPage = () => {
                 />
               </div>
             </div>
-            <div className="col-span-4">
+            <div className="xl:col-span-4">
               {loading ? (
                 <div className="grid grid-cols-3 gap-4">
                   {Array.from({ length: 3 }).map((_, index) => (
@@ -89,13 +88,13 @@ const BrowseCarsPage = () => {
               ) : (
                 <CarCardsList cars={cars} />
               )}
+              <PaginationSection
+                onChangePage={handleChangePage}
+                page={page}
+                take={meta.take}
+                total={meta.total}
+              />
             </div>
-            <PaginationSection
-              onChangePage={handleChangePage}
-              page={page}
-              take={meta.take}
-              total={meta.total}
-            />
           </div>
         )}
       </div>
