@@ -1,5 +1,10 @@
 import BrowseCarsPage from "@/features/browse-cars-page";
+import { Suspense } from "react";
 
 export default function Cars() {
-  return <BrowseCarsPage />;
+  return (
+    <Suspense>
+      <BrowseCarsPage />
+    </Suspense>
+  );
 }
