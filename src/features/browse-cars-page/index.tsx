@@ -1,17 +1,17 @@
 "use client";
 
-import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/Navbar";
-import NoCarsFound from "@/components/NoCarsFound";
-import PaginationSection from "@/components/PaginationSection";
-import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
-import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
 import {
   parseAsArrayOf,
   parseAsInteger,
   parseAsString,
   useQueryState,
 } from "nuqs";
+import Footer from "@/components/footer/Footer";
+import Navbar from "@/components/Navbar";
+import NoCarsFound from "@/components/NoCarsFound";
+import PaginationSection from "@/components/PaginationSection";
+import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
+import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
 import { useDebounce } from "use-debounce";
 import CarCardsList from "./components/CarCardsList";
 import CompaniesCheckboxes from "./components/CompaniesCheckboxes";
@@ -33,7 +33,7 @@ const BrowseCarsPage = () => {
     meta,
   } = useGetRentedCars({
     page,
-    take: 12,
+    take: 9,
     companies: selectedCompany,
     sortBy: debouncedSortBy,
   });

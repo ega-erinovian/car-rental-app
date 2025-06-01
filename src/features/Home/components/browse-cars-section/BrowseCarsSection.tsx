@@ -14,7 +14,7 @@ export default function BrowseCarsSection() {
   }
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto" id="cars">
       <div className="py-16 pt-8">
         <div className="mb-8">
           <p className="font-bold text-blue-600 text-xl">Newest</p>

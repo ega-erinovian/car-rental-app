@@ -92,7 +92,7 @@ const PaginationSection: FC<PaginationSectionProps> = ({
                 onChangePage(pageNum);
               }}
               isActive={page === pageNum}
-              className={page === pageNum ? "font-bold text-purple-500" : ""}>
+              className={page === pageNum ? "font-bold text-blue-500" : ""}>
               {pageNum}
             </PaginationLink>
           </PaginationItem>
