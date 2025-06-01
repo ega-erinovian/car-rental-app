@@ -1,20 +1,29 @@
 "use client";
 
+import {
+  parseAsArrayOf,
+  parseAsInteger,
+  parseAsString,
+  useQueryState,
+} from "nuqs";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/Navbar";
+import NoCarsFound from "@/components/NoCarsFound";
+import PaginationSection from "@/components/PaginationSection";
+import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
 import { useGetRentedCars } from "@/hooks/api/useGetRentedCars";
-import { useState } from "react";
 import { useDebounce } from "use-debounce";
 import CarCardsList from "./components/CarCardsList";
 import CompaniesCheckboxes from "./components/CompaniesCheckboxes";
 import SortBySelectInput from "./components/SortBySelectInput";
-import PaginationSection from "@/components/PaginationSection";
 
 const BrowseCarsPage = () => {
-  const [page, setPage] = useState<number>(1);
-  const [selectedCompany, setSelectedCompany] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<string>("aToZ");
-  const [debouncedCompany] = useDebounce(selectedCompany, 500);
+  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  const [sortBy, setSortBy] = useQueryState("search", { defaultValue: "aToZ" });
+  const [selectedCompany, setSelectedCompany] = useQueryState(
+    "companies",
+    parseAsArrayOf(parseAsString).withDefault([])
+  );
   const [debouncedSortBy] = useDebounce(sortBy, 500);
 
   const {
@@ -24,8 +33,8 @@ const BrowseCarsPage = () => {
     meta,
   } = useGetRentedCars({
     page,
-    take: 15,
-    companies: debouncedCompany,
+    take: 9,
+    companies: selectedCompany,
     sortBy: debouncedSortBy,
   });
 
@@ -49,43 +58,45 @@ const BrowseCarsPage = () => {
 
   const handleChangePage = (page: number) => setPage(page);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>Failed to load rented cars</h1>;
-  }
-
-  // TODO: Add pagination component to change page, use debounce, and use nuqs
-
   return (
     <>
       <Navbar />
       <div className="container mx-auto w-full px-4 pb-12 mt-28">
-        <div className="grid grid-cols-5 gap-6">
-          <div className="col-span-1 z-50">
-            <div className="sticky top-28 border border-gray-200 rounded-xl p-8 grid gap-6">
-              <CompaniesCheckboxes
-                checkoxChange={handleCheckboxChange}
-                selectedCompany={selectedCompany}
-              />
-              <SortBySelectInput
-                sortChangeHandle={handleSortChange}
-                sortBy={sortBy}
+        {(cars.length === 0 && !loading) || error ? (
+          <NoCarsFound />
+        ) : (
+          <div className="container grid xl:grid-cols-5 gap-6">
+            <div className="xl:col-span-1 w-full">
+              <div className="xl:sticky top-28 border border-gray-200 rounded-xl p-8 grid gap-4">
+                <CompaniesCheckboxes
+                  checkoxChange={handleCheckboxChange}
+                  selectedCompany={selectedCompany}
+                />
+                <SortBySelectInput
+                  sortChangeHandle={handleSortChange}
+                  sortBy={sortBy}
+                />
+              </div>
+            </div>
+            <div className="xl:col-span-4">
+              {loading ? (
+                <div className="grid grid-cols-3 gap-4">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <CarCardSkeleton key={index} />
+                  ))}
+                </div>
+              ) : (
+                <CarCardsList cars={cars} />
+              )}
+              <PaginationSection
+                onChangePage={handleChangePage}
+                page={page}
+                take={meta.take}
+                total={meta.total}
               />
             </div>
           </div>
-          <div className="col-span-4">
-            <CarCardsList cars={cars} />
-          </div>
-          <PaginationSection
-            onChangePage={handleChangePage}
-            page={page}
-            take={meta.take}
-            total={meta.total}
-          />
-        </div>
+        )}
       </div>
       <Footer />
     </>

@@ -103,8 +103,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:inline-block">
           <Link
-            href="https://wa.me/+6285155114016"
-            target="_blank"
+            href="/#cars"
             className="py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
             Book Now
           </Link>

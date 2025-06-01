@@ -8,7 +8,7 @@ interface CarCardListInterface {
 
 const CarCardsList: FC<CarCardListInterface> = ({ cars }) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
       {cars.map((car, index) => (
         <div key={index}>
           <CarCard key={index} car={car} />

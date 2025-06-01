@@ -12,9 +12,18 @@ export const navigationLink = [
 ];
 
 export const adminLinks = [
-  { title: "Admin Godean", path: "/" },
-  { title: "Admin Bandung", path: "/" },
-  { title: "Admin Semarang", path: "/" },
+  {
+    title: "Admin Godean",
+    path: "https://wa.me/6285155114016?text=Hello,%20I%20want%20to%20rent%20a%20car,%20can%20you%20help%20me%20please.",
+  },
+  {
+    title: "Admin Bandung",
+    path: "https://wa.me/6281209098888?text=Hello,%20I%20want%20to%20rent%20a%20car,%20can%20you%20help%20me%20please.",
+  },
+  {
+    title: "Admin Semarang",
+    path: "https://wa.me/6282123233456?text=Hello,%20I%20want%20to%20rent%20a%20car,%20can%20you%20help%20me%20please.",
+  },
 ];
 
 export const officeAddresses = [
