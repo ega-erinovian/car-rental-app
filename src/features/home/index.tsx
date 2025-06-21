@@ -10,7 +10,7 @@ import Footer from "@/components/footer/Footer";
 const HomePageComponent = () => {
   return (
     <>
-      <Navbar />
+      <Navbar linkColor="text-gray-700" />
       <div className="container mx-auto w-full px-4 mt-28">
         <HeroSection />
         <FeaturesSection />
