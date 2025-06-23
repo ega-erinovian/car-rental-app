@@ -6,6 +6,7 @@ import ValuesSection from "./components/ValuesSection";
 import TeamSection from "./components/TeamSection";
 import TimelineSection from "./components/TimelineSection";
 import CTASection from "./components/CTASection";
+import Footer from "@/components/footer/Footer";
 
 const AboutUsComponent = () => {
   return (
@@ -17,6 +18,7 @@ const AboutUsComponent = () => {
       <TeamSection />
       <TimelineSection />
       <CTASection />
+      <Footer />
     </div>
   );
 };

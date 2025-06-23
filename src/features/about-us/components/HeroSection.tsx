@@ -20,9 +20,9 @@ const HeroSection = () => {
             <span className="text-blue-200">Since 2020</span>
           </h1>
           <p className="text-blue-100 leading-relaxed px-24">
-            We're more than just a car rental company. We're your trusted
-            partner in creating unforgettable journeys and experiences on the
-            road.
+            We&apos;re more than just a car rental company. We&apos;re your
+            trusted partner in creating unforgettable journeys and experiences
+            on the road.
           </p>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const CTASection = () => {
   return (
@@ -18,19 +19,21 @@ const CTASection = () => {
             <span className="text-blue-200">The Road Like Never Before?</span>
           </h2>
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-            Join thousands of satisfied customers who trust CodersGO for their
+            Join thousands of satisfied customers who trust Godean05 for their
             journey
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg font-semibold">
-              Book Your Car
-            </Button>
+            <Link href={"/cars"}>
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg font-semibold">
+                Book Your Car
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold">
+              className="border-white bg-transparent text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold">
               Contact Us
             </Button>
           </div>

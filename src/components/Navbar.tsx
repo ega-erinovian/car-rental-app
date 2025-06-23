@@ -6,7 +6,7 @@ import { useState, useEffect, FC } from "react";
 import { usePathname } from "next/navigation";
 
 interface NavbarProps {
-  linkColor: string;
+  linkColor?: string;
   linkHoverColor?: string;
   linkHoverScrolledColor?: string;
 }

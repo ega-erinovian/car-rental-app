@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { Star, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import OurStoryItem from "./OurStoryItem";
 
@@ -28,7 +26,8 @@ const OurStory = () => {
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               Every car in our collection is handpicked for quality, comfort,
               and performance. We believe that the journey is just as important
-              as the destination, and we're here to make every mile memorable.
+              as the destination, and we&apos;re here to make every mile
+              memorable.
             </p>
             <OurStoryItem text="Premium vehicle selection" />
             <OurStoryItem text="24/7 customer support" />
