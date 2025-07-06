@@ -12,11 +12,11 @@ interface FeaturesItemProps {
 const FeaturesItem: FC<FeaturesItemProps> = ({ icon, title, desc }) => {
   return (
     <motion.li
-      className=" group"
+      className="group features-item py-8 xl:py-12 xl:px-24 md:px-10"
       whileHover="hover"
       initial="rest"
       animate="rest">
-      <div className="w-full p-4 mx-auto flex items-center justify-center">
+      <div className=" w-full p-4 mx-auto flex items-center justify-center">
         <motion.div
           variants={{
             rest: { scale: 1 },

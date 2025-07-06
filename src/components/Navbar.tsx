@@ -2,10 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+interface NavbarProps {
+  linkColor?: string;
+  linkHoverColor?: string;
+  linkHoverScrolledColor?: string;
+}
+
+const Navbar: FC<NavbarProps> = ({
+  linkColor,
+  linkHoverColor = "text-blue-600",
+  linkHoverScrolledColor = "text-white",
+}) => {
   const [state, setState] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const pathname = usePathname();
@@ -33,10 +43,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-40 fixed top-0 bg-white w-full border-b md:border-0 py-2 transition-shadow duration-300 ${
-        scrolled ? "shadow-lg" : ""
+      className={`z-40 fixed top-0 w-full py-2 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg shadow-black/5"
+          : "bg-transparent"
       }`}>
-      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 gap-6">
+      <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 gap-6 ">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
             <Image
@@ -48,7 +60,9 @@ const Navbar = () => {
           </Link>
           <div className="md:hidden">
             <button
-              className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
+              className={`outline-none p-2 rounded-md focus:border-gray-400 focus:border transition-colors duration-200 ${
+                scrolled ? "text-gray-700" : linkColor
+              }`}
               onClick={() => setState(!state)}>
               {state ? (
                 <svg
@@ -83,19 +97,46 @@ const Navbar = () => {
         <div
           className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
             state ? "block" : "hidden"
+          } ${
+            state && !scrolled
+              ? "bg-white/90 backdrop-blur-md rounded-lg p-4 mx-4 md:bg-transparent md:backdrop-blur-none md:p-0 md:mx-0"
+              : ""
           }`}>
           <ul className="justify-end items-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             {navigationLink.map((item, idx) => {
               const isActive = pathname === item.path;
               return (
-                <li
-                  key={idx}
-                  className={`text-center ${
-                    isActive
-                      ? "text-blue-600 hover:text-blue-700 font-bold"
-                      : "text-gray-600 hover:text-blue-600 font-semibold"
-                  }`}>
-                  <Link href={item.path}>{item.title}</Link>
+                <li key={idx} className="text-center">
+                  <Link
+                    href={item.path}
+                    className={`
+                      relative inline-block
+                      transition-all duration-300 ease-out
+                      transform hover:scale-110 
+                      ${
+                        isActive
+                          ? `${
+                              scrolled
+                                ? `text-gray-600 hover:${linkHoverScrolledColor}`
+                                : state
+                                ? `text-white hover:${linkHoverColor}`
+                                : linkColor
+                            } font-bold before:w-full`
+                          : `${
+                              scrolled
+                                ? `text-gray-600 hover:${linkHoverScrolledColor}`
+                                : state
+                                ? `text-gray-600 hover:${linkHoverColor}`
+                                : linkColor
+                            } font-semibold hover:font-bold`
+                      }
+                      hover:tracking-wide
+                      hover:text-shadow-sm
+                    `}>
+                    <span className="relative z-10 transition-all duration-300 ease-out">
+                      {item.title}
+                    </span>
+                  </Link>
                 </li>
               );
             })}
@@ -104,7 +145,7 @@ const Navbar = () => {
         <div className="hidden md:inline-block">
           <Link
             href="/#cars"
-            className="py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow">
+            className="py-3 px-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow transition-all duration-300 hover:scale-105 hover:shadow-lg">
             Book Now
           </Link>
         </div>
