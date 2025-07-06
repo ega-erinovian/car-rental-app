@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden py-24">
+    <section className="relative overflow-hidden py-32">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800" />
       <div className="relative container mx-auto px-4 py-24 lg:py-32">
         <motion.div
@@ -14,12 +14,12 @@ const HeroSection = () => {
           <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30">
             About Us
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-3xl md:text-6xl font-bold leading-tight mb-6">
             Driving Your Dreams
             <br />
-            <span className="text-blue-200">Since 2020</span>
+            <span className="text-blue-200 text-6xl">Since 2020</span>
           </h1>
-          <p className="text-blue-100 leading-relaxed px-24">
+          <p className="text-blue-100 leading-relaxed px-4 xl:px-24 text-sm">
             We&apos;re more than just a car rental company. We&apos;re your
             trusted partner in creating unforgettable journeys and experiences
             on the road.

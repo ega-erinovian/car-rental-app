@@ -22,7 +22,7 @@ const CTASection = () => {
             Join thousands of satisfied customers who trust Godean05 for their
             journey
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-row gap-4 justify-center">
             <Link href={"/cars"}>
               <Button
                 size="lg"
@@ -30,12 +30,14 @@ const CTASection = () => {
                 Book Your Car
               </Button>
             </Link>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white bg-transparent text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold">
-              Contact Us
-            </Button>
+            <Link href={"/cars"}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white bg-transparent text-white hover:bg-white hover:text-blue-600 px-8 py-3 text-lg font-semibold">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

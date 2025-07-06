@@ -21,9 +21,9 @@ const SortBySelectInput: FC<SortBySelectInputInterface> = ({
 }) => {
   return (
     <div>
-      <p className="font-semibold mb-4">Sort By</p>
+      <h3 className="text-lg font-semibold text-gray-800 mb-4">Sort By</h3>
       <Select value={sortBy} onValueChange={sortChangeHandle}>
-        <SelectTrigger id="sortBy">
+        <SelectTrigger className="w-full border-gray-300 focus:border-blue-500 focus:ring-blue-500">
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>
         <SelectContent>
