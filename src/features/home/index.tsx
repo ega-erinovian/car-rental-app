@@ -11,7 +11,7 @@ const HomePageComponent = () => {
   return (
     <>
       <Navbar linkColor="text-gray-700" />
-      <div className="container mx-auto w-full px-4 mt-28">
+      <div className="container mx-auto w-full px-4 xl:px-12 mt-28">
         <HeroSection />
         <FeaturesSection />
         <FAQSection />

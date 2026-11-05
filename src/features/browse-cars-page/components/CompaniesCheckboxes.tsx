@@ -13,7 +13,7 @@ const CompaniesCheckboxes: FC<CompaniesCheckboxesInterface> = ({
   return (
     <div>
       <h3 className="text-lg font-semibold text-gray-800 mb-4">Company</h3>
-      <div className="space-y-3">
+      <div className="flex flex-wrap gap-6 gap-y-4 xl:flex-nowrap xl:flex-col">
         {company.map((item, index) => (
           <label
             key={index}

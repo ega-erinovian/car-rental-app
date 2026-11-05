@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <footer className="py-16 md:py-24 pb-8 md:pb-12 bg-gray-50">
-      <div className="container mx-auto px-4 lg:px-8 xl:px-0">
+      <div className="container mx-auto px-4 xl:px-12">
         <div className="pb-8">
           <Link href="/">
             <Image
