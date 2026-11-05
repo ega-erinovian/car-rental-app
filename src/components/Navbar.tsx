@@ -38,7 +38,6 @@ const Navbar: FC<NavbarProps> = ({
   const navigationLink = [
     { title: "Cars", path: "/cars" },
     { title: "About Us", path: "/about-us" },
-    { title: "Contact", path: "/contact" },
   ];
 
   return (

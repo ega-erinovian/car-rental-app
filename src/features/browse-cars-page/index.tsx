@@ -27,16 +27,17 @@ const BrowseCarsPage = () => {
   const [debouncedSortBy] = useDebounce(sortBy, 500);
 
   const {
-    rentedCars: cars,
-    loading,
+    data,
+    isLoading: loading,
     error,
-    meta,
   } = useGetRentedCars({
     page,
     take: 9,
     companies: selectedCompany,
     sortBy: debouncedSortBy,
   });
+  const cars = data?.data ?? [];
+  const meta = data?.meta;
 
   // Handle checkbox change
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,7 +106,7 @@ const BrowseCarsPage = () => {
 
               {/* Cars Grid */}
               <div className="xl:col-span-4">
-                <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <div className="bg-white rounded-2xl shadow-lg p-8">
                   <div className="flex justify-between items-center mb-8">
                     <h2 className="text-2xl font-bold text-gray-800">
                       Available Cars
@@ -125,22 +126,20 @@ const BrowseCarsPage = () => {
                     <CarCardsList cars={cars} />
                   )}
                 </div>
-
                 {/* Pagination */}
-                <div className="flex justify-center">
-                  <PaginationSection
-                    onChangePage={handleChangePage}
-                    page={page}
-                    take={meta.take}
-                    total={meta.total}
-                  />
-                </div>
               </div>
             </div>
           )}
         </div>
+        <div className="flex justify-center w-full">
+          <PaginationSection
+            onChangePage={handleChangePage}
+            page={page}
+            take={meta?.take ?? 9}
+            total={meta?.total ?? 0}
+          />
+        </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -4,7 +4,7 @@ import { stats } from "../consts";
 
 const FactsInNumberSection = () => {
   return (
-    <Card className="my-16 mt-8 bg-blue-600">
+    <Card className="my-16 mt-8 bg-blue-600 px-4">
       <section className="py-14">
         <div className="max-w-screen-xl mx-auto px-4 text-white md:px-8">
           <div className="max-w-2xl mx-auto text-center">

@@ -7,9 +7,10 @@ import NoCarsFound from "@/components/NoCarsFound";
 import CarCardSkeleton from "@/components/skeleton/CarCardSkeleton";
 
 export default function BrowseCarsSection() {
-  const { rentedCars, loading, error } = useGetRentedCars({ take: 8 });
+  const { data, isLoading, error } = useGetRentedCars({ take: 8 });
+  const rentedCars = data?.data ?? [];
 
-  if ((rentedCars.length === 0 && !loading) || error) {
+  if ((rentedCars.length === 0 && !isLoading) || error) {
     return <NoCarsFound />;
   }
 
@@ -22,7 +23,7 @@ export default function BrowseCarsSection() {
             Available Cars
           </h1>
         </div>
-        {loading ? (
+        {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-8">
             {Array.from({ length: 4 }).map((_, index) => (
               <CarCardSkeleton key={index} />
